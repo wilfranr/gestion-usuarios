@@ -1,0 +1,94 @@
+<nav class="bg-primary text-white p-4 flex justify-between items-center">
+  <div class="text-lg font-bold">Mi Plataforma</div>
+  <div class="flex gap-6">
+    <a routerLink="/" class="hover:underline cursor-pointer">Inicio</a>
+    <a routerLink="/gestion-usuarios" class="hover:underline cursor-pointer"
+      >Gestión de Usuarios</a
+    >
+    <button
+      (click)="cerrarSesion()"
+      class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
+    >
+      Cerrar sesión
+    </button>
+  </div>
+</nav>
+
+<div class="p-6 max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold mb-4 text-center text-primary">
+    Gestión de Usuarios
+  </h2>
+
+  <!-- Formulario -->
+  <form
+    (ngSubmit)="guardarUsuario()"
+    class="mb-6 grid gap-4 grid-cols-1 md:grid-cols-2"
+  >
+    <input
+      [(ngModel)]="nuevoUsuario.nombre"
+      name="nombre"
+      placeholder="Nombre"
+      class="border px-4 py-2 rounded"
+      required
+    />
+    <input
+      [(ngModel)]="nuevoUsuario.correo"
+      name="correo"
+      placeholder="Correo electrónico"
+      class="border px-4 py-2 rounded"
+      required
+    />
+    <select
+      [(ngModel)]="nuevoUsuario.rol"
+      name="rol"
+      class="border px-4 py-2 rounded"
+      required
+    >
+      <option value="" disabled selected>Rol</option>
+      <option value="Administrador">Administrador</option>
+      <option value="Visualizador">Visualizador</option>
+    </select>
+    <button
+      type="submit"
+      class="bg-primary text-white py-2 rounded hover:bg-gray-700 col-span-1 md:col-span-2"
+    >
+      {{ modoEditar ? "Actualizar" : "Guardar" }}
+    </button>
+  </form>
+
+  <!-- Tabla de usuarios -->
+  <table class="w-full border-collapse">
+    <thead>
+      <tr class="bg-primary text-white">
+        <th class="py-2 px-4 border">Nombre</th>
+        <th class="py-2 px-4 border">Correo</th>
+        <th class="py-2 px-4 border">Rol</th>
+        <th class="py-2 px-4 border">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let usuario of usuarios; let i = index"
+        class="text-center border-t"
+      >
+        <td class="py-2 px-4">{{ usuario.nombre }}</td>
+        <td class="py-2 px-4">{{ usuario.correo }}</td>
+        <td class="py-2 px-4">{{ usuario.rol }}</td>
+        <td class="py-2 px-4 flex gap-2 justify-center">
+          <button
+            (click)="editarUsuario(i)"
+            class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded"
+          >
+            Editar
+          </button>
+          <button
+            (click)="eliminarUsuario(i)"
+            class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
