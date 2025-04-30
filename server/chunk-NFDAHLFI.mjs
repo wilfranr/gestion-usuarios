@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{a as p,b as i,c as n,h as r,k as a,m,n as f,q as s,u as c,x as l}from"./chunk-Z643PLIV.mjs";var o=class t{title="gestion-usuarios";static \u0275fac=function(e){return new(e||t)};static \u0275cmp=p({type:t,selectors:[["app-root"]],standalone:!0,features:[n],decls:1,vars:0,template:function(e,A){e&1&&i(0,"router-outlet")},dependencies:[l,c]})};var d={providers:[r({eventCoalescing:!0}),f()]};var C={providers:[s()]},u=a(d,C);var v=()=>m(o,u),j=v;export{j as a};
