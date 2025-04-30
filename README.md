@@ -29,3 +29,8 @@ Este proyecto es una plataforma web desarrollada con **Angular 19** y **Tailwind
 git clone https://github.com/wilfranr/gestion-usuarios.git
 cd gestion-usuarios
 ```
+
+
+Github pages para ver despliegue:
+
+https://wilfranr.github.io/gestion-usuarios/
