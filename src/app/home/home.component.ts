@@ -54,6 +54,7 @@ export class HomeComponent {
       localStorage.removeItem('registroUsuario');
       this.nombreUsuario = null;
       this.rolUsuario = null;
+      location.href = '/';
     }
   }
 }

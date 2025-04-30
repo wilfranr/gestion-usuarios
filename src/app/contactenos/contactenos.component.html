@@ -1,0 +1,62 @@
+<nav class="bg-primary text-white p-4 flex justify-between items-center">
+  <div class="text-lg font-bold">Mi Plataforma</div>
+  <div class="flex gap-6">
+    <a routerLink="/" class="hover:underline cursor-pointer">Inicio</a>
+    <a routerLink="/gestion-usuarios" class="hover:underline cursor-pointer"
+      >Gestión de Usuarios</a
+    >
+    <a routerLink="/contacto" class="hover:underline cursor-pointer"
+      >Contáctenos</a
+    >
+  </div>
+</nav>
+
+<div class="max-w-2xl mx-auto p-6 mt-10 bg-white rounded shadow">
+  <h2 class="text-2xl font-bold mb-6 text-center text-primary">Contáctenos</h2>
+
+  <form (ngSubmit)="enviar()" #contactForm="ngForm" class="space-y-4">
+    <input
+      type="text"
+      [(ngModel)]="contacto.nombre"
+      name="nombre"
+      required
+      placeholder="Nombre"
+      class="w-full border px-4 py-2 rounded"
+    />
+
+    <input
+      type="email"
+      [(ngModel)]="contacto.correo"
+      name="correo"
+      required
+      placeholder="Correo electrónico"
+      class="w-full border px-4 py-2 rounded"
+    />
+
+    <input
+      type="text"
+      [(ngModel)]="contacto.asunto"
+      name="asunto"
+      required
+      placeholder="Asunto"
+      class="w-full border px-4 py-2 rounded"
+    />
+
+    <textarea
+      [(ngModel)]="contacto.mensaje"
+      name="mensaje"
+      required
+      rows="5"
+      placeholder="Mensaje"
+      class="w-full border px-4 py-2 rounded"
+    ></textarea>
+
+    <button
+      type="submit"
+      [disabled]="!contactForm.form.valid"
+      class="bg-primary text-white px-6 py-2 rounded hover:bg-gray-700 w-full"
+    >
+      Enviar mensaje
+    </button>
+  </form>
+</div>
